@@ -3,6 +3,7 @@
 
 
 
+
 # The First Rule: Find your own rules.
 Here's an idea: much of our success in SE and KE come from a few
 dozen patterns on how we code and how we organize the teams that
