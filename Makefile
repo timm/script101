@@ -1,6 +1,6 @@
 SHELL = bash
 MAKEFLAGS += --silent
-update: $(shell find . -name [a-z]*.md)
+update: $(shell find . -name [0-9a-z]*.md)
 	echo ""
 
 %.md: 
