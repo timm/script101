@@ -8,7 +8,7 @@ we should not forget the basics.
 
 Much of our success in SE and KE come from a few
 dozen patterns that describe how best to  code (and organize the teams that
-do that coding).   
+do that coding).
 _SCRIPT101_ is an repository for those patterns. 
 
 There are many kinds of patterns.  Some are process patterns that tell us how we should build things. Some are patterns in
@@ -33,13 +33,20 @@ it can be useful to as "why is it missing?" and "should we use it?".
 
 I urge you to think about what patterns are useful for your team and
 how you can check if it is being used.
-Then, for each such pattern, build checklists or scripts that can
-check for the presence (or abscence) of that pattern. Further, those
+Then:
+
+-  For each such pattern, build checklists or scripts that can
+check for the presence (or abscence) of that pattern. 
+- Those
 checklists/scripts should be run (often) and the results shared
-across the whole team. Finally, the patterns nobody uses, or the patterns
+across the whole team. 
+- Further, the patterns nobody uses, or the patterns
 that impress no one,  should be
-retired. Similarly, the patterns everyone uses should be taught to newcomers
-when they enter a project. In this way, groups can evolve a shared
+retired. 
+- Finally, the patterns everyone uses should be taught to newcomers
+when they enter a project. 
+
+In this way, groups can evolve a shared
 understanding of useful (or otherwise) practices in the local
 community.
 
