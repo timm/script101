@@ -35,5 +35,5 @@ a project has imposed tight restrictions over who can run a build.
 - Think of coding practices that would create itnernal boundaries.
 - Are there any circumstances under which you might decide to ignore this pattern and impose internal boundaries?
 
-[^kernal]: [Linux Kernel Best Practices](https://go.pardot.com/l/6342/2017-10-24/3xr3f2/6342/188781/Publication_LinuxKernelReport_2017.pdf), 2017.
+[^kernel]: [Linux Kernel Best Practices](https://go.pardot.com/l/6342/2017-10-24/3xr3f2/6342/188781/Publication_LinuxKernelReport_2017.pdf), 2017.
 
