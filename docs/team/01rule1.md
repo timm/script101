@@ -1,7 +1,7 @@
 ![](https://www.apple.com/newsroom/images/passions/education/Apple-STEAM-Day-hero_Full-Bleed-Image.jpg.large.jpg)   
 [home](/README.md) 
 
-# The Most Important Rule: Find your own rules.
+# The First, Most Important,  Rule: Find your own rules.
 > While it it great to study the latest and
 greatest ideas from software engineering and knowledge  engineering,
 we should not forget the basics.
@@ -52,7 +52,7 @@ community.
 
 Have fun!
 
-## Practice
+## Exercises
 - Think about the software you know and write down what impresses you.
 - How would you be able to check for what impresses you?
 - How early in a project could that check be performed?

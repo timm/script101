@@ -3,7 +3,8 @@ asda
 # No Internal Boundadies
 > Team Pattern
 
-The kernel of the Linux operation system is a unique piece of software. Used around the world and maintained
+The kernel of the Linux operation system is a unique piece of software. Used continually
+around the world and maintained
 for decades, it represents the combined work of thousands of developers.
 
 
@@ -12,7 +13,8 @@ src="https://user-images.githubusercontent.com/29195/129657782-3b32c13e-6283-481
 
 
 It is interesting and insightful to ask how could one piece of software, written by so many people, could be so successful.
-When that question is posed to the Linux core development team, they have several answers including "no internal boundaries".
+When that question is posed to the Linux core development team, they have several answers 
+(shown at right) including "no internal boundaries".
 
 According to their report[^kernel], no iternal boundaries works like thos:
 
@@ -33,6 +35,5 @@ a project has imposed tight restrictions over who can run a build.
 - Think of coding practices that would create itnernal boundaries.
 - Are there any circumstances under which you might decide to ignore this pattern and impose internal boundaries?
 
-[^kernal]: 
-<a href="https://go.pardot.com/l/6342/2017-10-24/3xr3f2/6342/188781/Publication_LinuxKernelReport_2017.pdf">Linux Kernel Best Practices</a>, 2017.
+[^kernal]: [Linux Kernel Best Practices](https://go.pardot.com/l/6342/2017-10-24/3xr3f2/6342/188781/Publication_LinuxKernelReport_2017.pdf), 2017.
 
