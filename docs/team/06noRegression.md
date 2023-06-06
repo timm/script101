@@ -23,7 +23,7 @@ But  unless "no regressions" is adhered too, then all your [short release cycles
 may got to waste since your stakeholders are reluctant to install the latest and greatest
 version of your software.
 
-## Excise:
+## Exercise:
 - Do the following twice
   - Imagine some project that makes an important initial decision, which developers then regret,
     but what we must suffer through till the end of that project.
@@ -31,7 +31,7 @@ version of your software.
 
 (And for examples where other people have lamented decisions, see 
 "Was The Windows Registry a Good Idea?" [^registry]
-and "The Diamond Problem" [^diamond].
+and "The Diamond Problem" [^diamond]).
 
 
 [^diamond]: [The Diamond Problem](https://en.wikipedia.org/wiki/Multiple_inheritance#The_diamond_problem)
