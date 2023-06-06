@@ -40,7 +40,8 @@ and other software [^xiao]:
 
 So the real message here is "decide your own rate of releases" but consider
 releasing more frequently. Just to motivate that, in the now famous 
-"no moot" memo [^moot], Google developers lament  their lose in the deep
+"no moot" memo [^moot], Google developers say the   lost out in the
+deep learning
 learning market once their models got released to the open source community.
 
 > "..the uncomfortable truth is, we aren’t positioned to win this
