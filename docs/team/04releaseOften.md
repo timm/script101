@@ -4,7 +4,7 @@ asda
 > Team Pattern
 
 <img width=400 align=right 
-src="releastOfren.png">
+src="releaseOfren.png">
 
 From the Linux Kernal Report[^kernel]:
 
