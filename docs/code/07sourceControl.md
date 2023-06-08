@@ -24,7 +24,9 @@ tracks and managing changes made to code and other files.
 
 ## Key concepts
 
-[![Watch the video](https://www.youtube.com/embed/ng9m3EGLeTY)
+
+
+![Watch the video](https://img.youtube.com/vi/T-D1KVIuvjA/maxresdefault.jpg)](https://youtu.be/Tng9m3EGLeTY)
 
 ## Actiopms
 
