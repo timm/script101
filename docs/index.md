@@ -15,7 +15,6 @@
       </dl>
       <hr>
     </td><td> <!--- Project --->
-    
     </td><td> <!--- Code --->
       <dl> 
         <dt><a href=#ARCH>ARCH</a></dt><dd>Architecture, matters.</dd>
