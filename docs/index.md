@@ -98,11 +98,11 @@ Never accept unfiltered text from outside the program (since it may contain evil
 In Python, that is already available in the  **ast.literal\_eval** function. This function will convert strings into booleans, integers, floats, and even strings (if appropriate)  while crashing on everything else.</p>
 
 ### C
-####<a name=CONFIG></a>Configuration Algorithms
+#### <a name=CONFIG></a>Configuration Algorithms
 iasd
 
 ### L
-####<a name=LAYERs></a>LAYERed Architectures
+#### <a name=LAYERs></a>LAYERed Architectures
 iasd
 
 ### N
@@ -188,7 +188,7 @@ Column effects row
  
 
 ### P
-####<a name=PIPEs></a>Pipe and Filter
+#### <a name=PIPEs></a>Pipe and Filter
 
 ## Exerices
 
