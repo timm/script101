@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>A Quick Guide to Software and Knowledge    
+        Engineering</title>
+    <meta name="description" content="Some inro SE/KE notes">
+    <link rel="stylesheet" href="main.css">
+  </head>
+  <body>
+    <h1>A Quick Guide to Software and Knowledge    
+        Engineering</h1>
+    <table>
+      <tr><td><h2>Misc</h2></td>
+              <td><h2>Team</h2></td><td>  
+              <td><h2>Design</h2></td><td>         
+              <h2>Python</h2></td>
+      </tr>
+      <tr>
+        <td><!--- misc--->
+          <dl> 
+            <dt><a href=#BEI>BEI</a></dt>
+            <dd>Beware eval input.</dd>
+          </dl>
+        </td><td> <!--- teams --->
+        
+        </td><td> <!--- design --->
+          <dl> 
+            <dt><a href=#ARCH>ARCH</a></dt>
+            <dd>Architecture, matters.</dd>
+          </dl>
+        </td><td> <!--- python --->
+        </td>  
+      </tr>
+    </table>
+    <hr>
+<h2> Glossary</h2>
+    <a name=ARC><h3>ARCH: Architecture, matters</h3></a>
+      <p>Informally, architectires divide up big projects such that teams, or people, can work productilvy on their own bits while also playing well with others. </p> 
+    <p>  More formally, says Wikipedia, Software architectures are the set of structures needed to reason about a software system and the discipline of creating such structures and systems.
+    </p>
+    <p>Examples:  <a href=#BLACKBOARDs>BLACKBOARDs</a>,
+                  <a href=#LAYERs>LAYERs</a>, 
+                  <a href=#PIPEs>PIPEs</a>, 
+        etc. </p>
+    <p>One important feture about archtectures is thata  reflecting on architectureal choices is a great way to reflect on large scale options in your system. For example, 
+    </p>
+    
+    <a name=BEI><h3>BEI: Beware evil input</h3></a>
+      <p>Never accept unfiltered text from outside the program (since it may contain evils strings) and <b>never</b>  evaulated raw text. Instead, build yourself a parser that only accepts the (very limited) ranges of things you   except   (and reqjects everything else). </p>
+    <p> In Python, that is already available in the  <tt>ast.literal_eval</tt> function. This function will convery strings into booleans, integers, floats, and even strings (if appropriate)  while crashing on everything else.</p>
+
+    <a name=LAYERs><h3>LAYERs: Pipe and filter architectures</h3>
+    </a>
+    <p>asdas </p> 
+
+    <a name=PIPEs><h3>PIPEs: Pipe and filter architectures</h3> </a>
+    <p> asdaa </p> 
+   
+  
+    <h2>References</h2>
+    Parnas
+  </body>
+</html>
+<!--
+
+--->
+
