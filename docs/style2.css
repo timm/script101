@@ -17,14 +17,12 @@ html {
     padding:1rem;
 }
 
-table { background-color: red;}
 /* assign columns to grid areas */
 .left-sidebar-grid > .header {
     grid-area:header;
     background:#f97171;
 }
 .left-sidebar-grid > .main-content {
-    width: 100%;
     background:#fff;
 }
 .left-sidebar-grid > .left-sidebar {

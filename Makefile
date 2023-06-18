@@ -17,7 +17,7 @@ MAKEFLAGS += --silent
     /^## /{$$1=""; print "<p><b><u>"$$0"</b></u><br>"} \
     /^### /{$$1=""; print "<p>"$$0"<br>"} \
     /^#### /{$$1=""; print " ◾️ "$$0"<br>"} ' >> $@
-	echo "</secction><footer class=\"footer\">Footer" >> $@
+	echo "</section><footer class=\"footer\">Footer" >> $@
 	echo "</footer></div></body></html>" >> $@
 
 pull:
