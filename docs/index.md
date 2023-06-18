@@ -44,7 +44,7 @@ Examples:
 - [Pipes](#PIPEs)
 - etc. 
 
-One important feture about archtectures is thata  reflecting on architectureal choices is a great way to reflect on large scale options in your system. For example,  the famous Keyword in Context[^Parnas72] example explores
+One important feture about archtectures is that   reflecting on architectureal choices is a great way to reflect on large scale options in your system. For example,  the famous Keyword in Context[^Parnas72] example explores
 the following requirement:
 
 - The KWIC [Key Word in Context index system accepts an ordered set of
@@ -98,15 +98,15 @@ Never accept unfiltered text from outside the program (since it may contain evil
 In Python, that is already available in the  **ast.literal\_eval** function. This function will convert strings into booleans, integers, floats, and even strings (if appropriate)  while crashing on everything else.</p>
 
 ### C
-#### <a name=CONFIG></a>Configuration Algorithms
+#### <a name=CONFIG>CoNFiguration Algorithms</a>
 iasd
 
 ### L
-#### <a name=LAYERs></a>LAYERed Architectures
+#### <a name=LAYERs>LAYERed Architectures</a>
 iasd
 
 ### N
-#### <a name=NFRs></a>Non-Fucntional Requirements
+#### <a name=NFRs>Non-Fucntional Requirements</a>
 
 Different project stakeholders have differernt requirements for the program. 
 
@@ -188,8 +188,8 @@ Column effects row
  
 
 ### P
-#### <a name=PIPEs></a>Pipe and Filter
-
+#### <a name=PIPEs>Pipe and Filter</a>`
+In the early days of UNIX, this was the classic "how to get many people to work together" architecture. The idea here was that
 ## Exerices
 
 
