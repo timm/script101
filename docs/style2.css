@@ -17,12 +17,14 @@ html {
     padding:1rem;
 }
 
+table { background-color: red;}
 /* assign columns to grid areas */
 .left-sidebar-grid > .header {
     grid-area:header;
     background:#f97171;
 }
 .left-sidebar-grid > .main-content {
+    width: 100%;
     background:#fff;
 }
 .left-sidebar-grid > .left-sidebar {
@@ -41,11 +43,11 @@ html {
 /* tablet breakpoint */
 @media (min-width:768px) {
     .left-sidebar-grid {
-        grid-template-columns:repeat(4, 1fr);
+        grid-template-columns:repeat(3, 1fr);
         grid-template-areas:
-            'header header header header'
-            'left-sidebar main-content  main-content main-content'
-            'footer footer footer footer';
+            'header header header qeader'
+            'left-sidebar main-content main-content'
+            'footer footer footer ';
     }
 }
 
