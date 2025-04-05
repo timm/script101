@@ -1,0 +1,309 @@
+<html>
+<head>
+<link rel=stylesheet href="style2.css"></head><body>
+</head>
+<body>
+<div class="left-sidebar-grid">
+    <header class="header">
+    &copy; Tim Menzies 2023, (timm@ieee.org)</header> 
+    <main class="main-content">
+<h1>Intelligent Software Scripting: from A to Z</h1>
+<table>
+  <tr><td><h2>Misc</h2></td>
+          <td><h2>Project</h2></td><td>
+          <td><h2>Code</h2></td><td>
+          <h2>Python</h2></td>
+  </tr>
+  <tr>
+    <td><!--- misc--->
+     <h3>Security</h3>
+      <dl> 
+        <dt><a href=#BEI>BEI</a></dt><dd>Beware eval input.</dd>
+      </dl>
+      <hr>
+    </td><td> <!--- Project --->
+    </td><td> <!--- Code --->
+      <dl> 
+        <dt><a href=#ARCH>ARCH</a></dt><dd>Architecture, matters.</dd>
+      </dl>
+    </td><td> <!--- python --->
+    </td>  
+  </tr>
+</table>
+
+<h2>Glossary</h2>
+<h3>A</h3>
+<h4><a name=ARCH></a>ARCH: Architecture, matters</h4>
+<p><img align=right width=500 src="https://ares.decipherzone.com/blog-manager/uploads/ckeditor_Types%20of%20Software%20Architecture%20Patterns.png"></p>
+<p>Informally, architectires divide up big projects such that teams, or people, can work productilvy on their own bits while also playing well with others. </p>
+<p>More formally, says Wikipedia, Software architectures are the set of structures needed to reason about a software system and the discipline of creating such structures and systems.  There are many kinds of architectures (see figure
+at right at some notes from the DecipherZone<sup id="fnref:Arch1"><a class="footnote-ref" href="#fn:Arch1">1</a></sup>.</p>
+<p>Examples:<br />
+- <a href="#BLACKBOARDs">Blackboards</a>
+- <a href="#LAYERs">Layers</a> 
+- <a href="#PIPEs">Pipes</a>
+- etc. </p>
+<p>One important feture about archtectures is that   reflecting on architectureal choices is a great way to reflect on large scale options in your system. For example,  the famous Keyword in Context<sup id="fnref:Parnas72"><a class="footnote-ref" href="#fn:Parnas72">3</a></sup> example explores
+the following requirement:</p>
+<ul>
+<li>The KWIC [Key Word in Context index system accepts an ordered set of
+lines, each line is an ordered set of words, and each word is an ordered
+set of characters. Any line may be ``circularly shifted'' by repeatedly
+removing the first word and appending it at the end of the line. The
+KWIC index system outputs a listing of all circular shifts of all lines in
+alphabetical order.</li>
+<li>Garlan and Shaw<sup id="fnref:Garlan92"><a class="footnote-ref" href="#fn:Garlan92">2</a></sup> explore four different designs (listed below) and score them as per the following table. 
+  For details on that discussion, see their text.</li>
+<li><em>Shared memory</em>: This is a classic "procedural design" where the functionality is divided hierathically and all functions can read/write to same 
+     shared memory.</li>
+<li><em>Abstact  data types</em>: This is the classic "object-oriented design" where each module has an interface offering services to anyone that wants them by invoking procedures in that interface.</li>
+<li><em>Events</em>: all services watch the data and are implicitedly triggered when certain parts of the data change in specific ways (for example,
+the act of adding a new line to the line storage causes an event to be sent to the
+shift module)</li>
+<li><em>Pipes and Filters</em>: Data runs in a linear way through a set of small filters (and the output of one
+    filter is the input to the next). </li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="right">Criteria</th>
+<th align="center">How="shared memory"</th>
+<th align="center">How="abstract data types"</th>
+<th align="center">How="Events"</th>
+<th align="center">How="Pile and Filter"</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">Change in algorithm?</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">+</td>
+<td align="center">+</td>
+</tr>
+<tr>
+<td align="right">Change in data representation?</td>
+<td align="center">-</td>
+<td align="center">+</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td align="right">Change in function?</td>
+<td align="center">+</td>
+<td align="center">-</td>
+<td align="center">+</td>
+<td align="center">+</td>
+</tr>
+<tr>
+<td align="right">Performance</td>
+<td align="center">+</td>
+<td align="center">+</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td align="right">Ruse</td>
+<td align="center">-</td>
+<td align="center">+</td>
+<td align="center">-</td>
+<td align="center">+</td>
+</tr>
+</tbody>
+</table>
+<p>You may disagree with some of these rankings (and to explore that, we would have to read in detail their text).
+But stepping back from the details, I say that the important part  of archiectures  is that they make us ask the following questions:</p>
+<ul>
+<li>How often do you reflect on <strong>multiple</strong> designs before selecting one?</li>
+<li>Are you knowledgable in multiple architectures?</li>
+<li>What are your rules for selecting one architeture over another?</li>
+</ul>
+<p>For a detailed discussion on the last points, see <a href="#NFR">non-functional requirements</a>
+Models of choices: softare product lines.</p>
+<p>Note that once we have choices, we can explore those choices manually our automatically with <a href="#CONFIG">configuration</a> algorithms.</p>
+<h4><a name=AUTO></a>AUTO: Automate Everything (as mucha s you can)</h4>
+<p>idioms, alias, scripts, make, tests </p>
+<p>auto Make on commit. </p>
+<h3>B</h3>
+<h4><a  name=BEI></a> BEI: Beware evil input</h4>
+<p>Never accept unfiltered text from outside the program (since it may contain evils strings) and <strong>never</strong>  evaulated raw text. Instead, build yourself a parser that only accepts the (very limited) ranges of things you   except   (and reqjects everything else). </p></p>
+<p>In Python, that is already available in the  <strong>ast.literal_eval</strong> function. This function will convert strings into booleans, integers, floats, and even strings (if appropriate)  while crashing on everything else.</p></p>
+<h3>C</h3>
+<h4><a name=CONFIG>CoNFiguration Algorithms</a></h4>
+<p>iasd</p>
+<h3>L</h3>
+<h4><a name=LAYERs>LAYERed Architectures</a></h4>
+<p>iasd</p>
+<h3>N</h3>
+<h4><a name=NFRs>Non-Fucntional Requirements</a></h4>
+<p>Different project stakeholders have differernt requirements for the program. </p>
+<p><img width=600 src="https://user-images.githubusercontent.com/29195/192363050-f2a2b95b-008e-492d-8950-0ee6afb66398.png"></p>
+<p>Note only that, by stakeholders assess their code on a range of criteria, not all of which everyone
+agrees on, and not all of which can be achieved at the same time:</p>
+<p><img width=600 src="https://user-images.githubusercontent.com/29195/192363236-44801242-d8de-4e38-aabe-11363fd41593.png"></p>
+<p>We all these criteira "non-functional requirements": </p>
+<ul>
+<li>properties, or qualities, that the product must have • may be critical to the product’s success</li>
+<li>here is a partial list of NFRs:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Quality attribute</th>
+<th>Key interest</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Availability</td>
+<td>Can I use the system when and where I need to?</td>
+</tr>
+<tr>
+<td>Conformance to standards</td>
+<td>Does the system comply with all applicable standards for functionality, safety, communication, certification, and interfaces?</td>
+</tr>
+<tr>
+<td>Efficiency</td>
+<td>Does the system use computer resources economically?</td>
+</tr>
+<tr>
+<td>Installability</td>
+<td>Can I easily install, uninstall, and reinstall the system and upgrades?</td>
+</tr>
+<tr>
+<td>Integrity</td>
+<td>Does the system protect against data inaccuracy, corruption, and loss?</td>
+</tr>
+<tr>
+<td>Interoperability</td>
+<td>Does the system connect well with others to exchange data and services?</td>
+</tr>
+<tr>
+<td>Maintainability</td>
+<td>Can developers easily modify, correct, and enhance the system?</td>
+</tr>
+<tr>
+<td>Performance</td>
+<td>Does the system respond sufficiently quickly to user actions and external events?</td>
+</tr>
+<tr>
+<td>Portability</td>
+<td>Can the system be migrated to different platforms easily?</td>
+</tr>
+<tr>
+<td>Reliability</td>
+<td>Does the system run when it’s supposed to without failing?</td>
+</tr>
+<tr>
+<td>Reusability</td>
+<td>Can developers reuse portions of the system in other products?</td>
+</tr>
+<tr>
+<td>Robustness</td>
+<td>Does the system respond sensibly to erroneous inputs and unexpected operating conditions?</td>
+</tr>
+<tr>
+<td>Safety</td>
+<td>Does the system protect users from harm and property from damage?</td>
+</tr>
+<tr>
+<td>Scalability</td>
+<td>Can the system easily expand to accommodate more users, data, or transactions?</td>
+</tr>
+<tr>
+<td>Security</td>
+<td>Does the system protect against malware attacks, intruders, unauthorized users, and data theft?</td>
+</tr>
+<tr>
+<td>Usability</td>
+<td>Can users easily learn how to use the system to accomplish their tasks?</td>
+</tr>
+<tr>
+<td>Verifiability</td>
+<td>Can testers determine whether the software was implemented correctly?</td>
+</tr>
+</tbody>
+</table>
+<p><img src="https://user-images.githubusercontent.com/29195/192363287-827dd70c-cce0-4beb-a2a8-16c595ce3ddc.png" width=7-- align=right></p>
+<p>Note that these NFRs mention factors, some of which can be measured:</p>
+<ul>
+<li>Time</li>
+<li>Transactions / sec</li>
+<li>Response time</li>
+<li>Time to complete an operation</li>
+<li>Space</li>
+<li>Main memory</li>
+<li>Auxiliary memory -  (Cache)</li>
+<li>Usability</li>
+<li>Training time</li>
+<li>Number of choices -  Mouse clicks</li>
+<li>Reliability</li>
+<li>Mean time to failure -  Downtime probability -  Failure rate</li>
+<li>Availability</li>
+<li>Robustness</li>
+<li>Time to recovery</li>
+<li>% of incidents leading to
+  catastrophic failures</li>
+<li>Odds data corruption after failure</li>
+<li>Portability</li>
+<li>% of non-portable code</li>
+<li>RunsonNoperatingsystems -  Runs on desktop, tablet, mobile</li>
+<li>Etc</li>
+</ul>
+<p>Column effects row</p>
+<ul>
+<li>optimizing for effeciency (col2) hurts lots of things (row3 to row8)</li>
+<li>reliabillity (col8) helps avialbility (row1) </li>
+<li>availability (col1) helps maintainability (row6) and reliability (row8)</li>
+<li>but maintainability (col6) says nothing about a availabilty (row1)</li>
+<li>maintainability hurts portability (in this project)</li>
+<li>but portability does nothing to maintainability (no, I don't know why either)</li>
+</ul>
+<p><img alt="image" src="https://user-images.githubusercontent.com/29195/192589531-be8abcb9-2a2a-4980-8ccb-c0ace4ef471d.png" /></p>
+<p>(Note that the  rules are only approximate and may not hold for specific projects.)</p>
+<h3>P</h3>
+<h4><a name=PIPEs>Pipe and Filter</a>`</h4>
+<p>In the early days of UNIX, this was the classic "how to get many people to work together" architecture. The idea here was that</p>
+<h2>Exerices</h2>
+<ol>
+<li>
+<p>The <a href="#ARCH">Architectures</a> section described many kinds of software architectures (in that text and also
+  from some excellent notes in the DecipherZone<sup id="fnref2:Arch1"><a class="footnote-ref" href="#fn:Arch1">1</a></sup>. How many more do you know? For each, offer an example of a kind of applications that <strong>should</strong> and <strong>should not</strong> use that architecture.</p>
+</li>
+<li>
+<p>Reflect over the table at the end of <a href="#NFRs">Non-Functional Requirements</a>. How many cells can you find where  you disagree with the rating (for a particular kind of software). Write down that kind of software and what rating they require in those cells.</p>
+</li>
+</ol>
+<h2>References</h2>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:Arch1">
+<p>https://www.decipherzone.com/blog-detail/software-architecture-patterns-type&#160;<a class="footnote-backref" href="#fnref:Arch1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:Arch1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:Garlan92">
+<p>David Garlan and Mary Shaw. <a href="https://userweb.cs.txstate.edu/~rp31/papers/intro_softarch.pdf">"An Introduction to Software Architecture"</a>  Advances in Software Engineering and Knowledge Engineering, Volume I, edited by V.Ambriola and G.Tortora, World Scientific Publishing Company, New Jersey, 1993&#160;<a class="footnote-backref" href="#fnref:Garlan92" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:Parnas72">
+<p>Parnas, David Lorge. <a href="https://www.win.tue.nl/~wstomv/edu/2ip30/references/criteria_for_modularization.pdf">"On the criteria to be used in decomposing systems into modules."</a> Communications of the ACM 15.12 (1972): 1053-1058.&#160;<a class="footnote-backref" href="#fnref:Parnas72" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div></main><section class="left-sidebar">
+<p><b><u> Glossary</b></u><br>
+<p> A<br>
+ ◾️  ARCH: Architecture, matters<br>
+ ◾️  AUTO: Automate Everything (as mucha s you can)<br>
+<p> B<br>
+ ◾️  BEI: Beware evil input<br>
+<p> C<br>
+ ◾️ <br>
+<p> L<br>
+ ◾️ <br>
+<p> N<br>
+ ◾️ <br>
+<p> P<br>
+ ◾️  `<br>
+<p><b><u> Exerices</b></u><br>
+<p><b><u> References</b></u><br>
+</section><footer class="footer">Footer
+</footer></div></body></html>
